@@ -33,6 +33,11 @@ dia = parseInt(dia);
 mes = parseInt(mes);
 if(dia ===14 && mes == 2){
     alert("ES SAN VALENTIN");
-}*/
-
+}else{
+    alert(`EL ${dia} / ${mes} NO ES SAN VALENTIN`);
+}
+*/
 //Ejercicio 4
+/*for(){
+
+}*/
