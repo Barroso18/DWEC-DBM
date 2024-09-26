@@ -41,3 +41,37 @@ if(dia ===14 && mes == 2){
 /*for(){
 
 }*/
+
+//Parte de funciones
+//Ejercicio 5
+/*  Escribe un programa que lea un conjunto de calificaciones, separadas por “;”
+        “4;7;10;8;6”
+Transformándolas en calificaciones alfabética según la siguiente lista.
+        • de 0 a <3     Muy deficiente
+        • de 3 a <5     Insuficiente
+        • de 5 a <6     Bien
+        • de 6 a <9     Notable
+        • de 9 a 10     Sobresaliente
+*/ 
+/*
+let notas = prompt("Introduce las calificaciones separadas por ;");
+let notasArray = notas.split(";");
+evaluaNotas (notasArray);
+function evaluaNotas (notasArray){
+    for(let i=0; i<notasArray.length; i++){
+        let nota = parseInt(notasArray[i]);
+        nota = calificaciones(nota);
+    }
+    return notasArray;
+}
+function calificaciones (nota){    
+    if (parseInt(nota) >=0 && parseInt(nota) <3){console.log(`${parseInt(nota)} Muy deficiente`);
+    }else if (parseInt(nota) >= 3 && parseInt(nota)<5){console.log(`${parseInt(nota)} Insuficiente`);
+    }else if (parseInt(nota) >= 5 && parseInt(nota)<6){ console.log(`${parseInt(nota)} Bien`);
+    }else if (parseInt(nota) >= 6 && parseInt(nota)<9){ console.log(`${parseInt(nota)} Notable`);
+    }else if (parseInt(nota) >= 9 && parseInt(nota) <= 10){ console.log(`${parseInt(nota)} Sobresaliente`);}
+    
+    return parseInt(nota);
+}
+*/
+
