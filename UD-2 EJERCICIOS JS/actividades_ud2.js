@@ -75,3 +75,33 @@ function calificaciones (nota){
 }
 */
 
+//Ejercicio 6
+
+
+//Ejercicio 7
+let numero = prompt("Introduce un valor entero:");
+numero = parseInt(numero);
+//IMPORTANTE LLAMAR A LA FUNCION !!!!
+triangulo(numero);
+function triangulo(numero){
+    if(numero !== 0){
+        for(let i = 0; i<numero; i++){
+            let linea = "*";
+            for(let j = 0; j<i; j++){
+                linea += "*";
+                
+            }
+            console.log(`${linea}\n`);
+        }
+    }else{
+        console.log(`NO HAY TRIANGULO\n`);
+    }
+}
+
+//Ejercicio 8
+
+
+//Ejercicio 9
+
+
+//Ejercicio 10
