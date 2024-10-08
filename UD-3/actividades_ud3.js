@@ -90,6 +90,7 @@ console.log(inverso);
 //  Sara,9
 //  Lucas,5
 //  Ivan,6
+/*
 let alumnosMap;
 let arrayMap = new Array();
 for(let i = 0; i<5;i++){
@@ -109,7 +110,17 @@ arrayMap.forEach(element => {
 });
 media = media/arrayMap.length;
 console.log(`La media es ${media}`);
+*/
 
+//Ejercicio 7
 
-
+let nombres = new Array();
+let edades = new Array();
+for(let i = 0; i<6;i++){
+    let persona = prompt("Introduce el nombre y la edad separado por ,");
+    let personaSep = persona.split(',');
+    nombres[i] = personaSep[0];
+    edades[i] = personaSep[1];
+}
+function borrarPorIndice(){}
 
