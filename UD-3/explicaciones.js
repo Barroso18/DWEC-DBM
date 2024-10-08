@@ -24,4 +24,13 @@ let ganadoresNoDuplicados2 = Array.from(new Set(ganadores)); // ['Márquez, 'Ros
 
 ganadoresNoDuplicados.has("Agustin");
 
+//Explicacion map
+let persona = new Map();
+persona.set('nombre', "Agustin");
+persona.set('apellido', "Aguilera");
+persona.set('edad', 99);
+persona.get("edad");// 99
+persona.size;// 3
+persona.delete("edad");
+persona.size;
     

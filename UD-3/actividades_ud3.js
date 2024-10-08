@@ -52,7 +52,7 @@ let idB= setTimeout(alerta2,7000);
 */
 
 //Explicacion del foreach
-let edades = [14,15,17,18,20,98,56];
+/*let edades = [14,15,17,18,20,98,56];
 for(let i=0;i<edades.length;i++){
     console.log(edades[i]);
 }
@@ -60,5 +60,5 @@ for(let i=0;i<edades.length;i++){
 edades.forEach(function(elemento){console.log(elemento)})
 // o mas resumido
 edades.forEach((e)=>console.log(e))
-
+*/
 //Ejercicio 5
