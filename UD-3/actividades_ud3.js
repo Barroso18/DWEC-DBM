@@ -62,3 +62,37 @@ edades.forEach(function(elemento){console.log(elemento)})
 edades.forEach((e)=>console.log(e))
 */
 //Ejercicio 5
+//  pepe,jesus,sara
+/*
+let socios = prompt("Introduce los nombres de los socios separados por , ");
+let nombresSocios = socios.split(",");
+console.log(nombresSocios.slice());
+//nombresSocios.forEach((e)=>console.log(e));
+//Longitud del array
+console.log(nombresSocios.length);
+*/
+//Mostrar el nombre de los socios ordenados por orden alfabético
+/*let alfabetico = nombresSocios;
+alfabetico.sort();
+console.log(alfabetico);*/
+
+//Mostrar el nombre de los socios en orden inverso al introducido
+/*
+let inverso = nombresSocios;
+inverso.reverse();
+console.log(inverso);
+//Aqui hace el inverso al sort y no se porque
+*/
+
+//Ejercicio 6
+let alumnosMap;
+let arrayMap = new Array();
+for(let i = 0; i<5;i++){
+    let alumnos = prompt("Introduce los nombres y notas de los alumnos separados por , ");
+    let alumnosSep = alumnos.split(',');
+    alumnosMap = new Map();
+}
+
+
+
+
