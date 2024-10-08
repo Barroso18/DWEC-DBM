@@ -85,13 +85,30 @@ console.log(inverso);
 */
 
 //Ejercicio 6
+//  David,10
+//  Pepe,8
+//  Sara,9
+//  Lucas,5
+//  Ivan,6
 let alumnosMap;
 let arrayMap = new Array();
 for(let i = 0; i<5;i++){
     let alumnos = prompt("Introduce los nombres y notas de los alumnos separados por , ");
     let alumnosSep = alumnos.split(',');
-    alumnosMap = new Map();
+    alumnosMap = new Map([['nombre',alumnosSep[0]],['nota',alumnosSep[1]]]);
+    arrayMap.push(alumnosMap);
 }
+//Mostrar cada alumno con su nota
+arrayMap.forEach(element => {
+    console.log(element.get('nombre')+": "+element.get('nota'));
+});
+//Mostrar la media de los alumnos
+let media = 0;
+arrayMap.forEach(element => {
+    media +=parseInt(element.get('nota'));
+});
+media = media/arrayMap.length;
+console.log(`La media es ${media}`);
 
 
 
