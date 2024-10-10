@@ -3,7 +3,10 @@ const PAPEL = 'papel'
 const TIJERA = 'tijera'
 
 const CONDICIONGANAR = [`${PIEDRA}-${TIJERA}`,`${TIJERA}-${PAPEL}`,`${PAPEL}-${PIEDRA}`]
-
+let ganadas = document.getElementById("ganadas");
+let perdidas = document.getElementById("perdidas");
+let empatadas = document.getElementById("empatadas");
+let jugador = document.getElementById("jugador");
 const opciones = [PIEDRA,PAPEL,TIJERA]
 
 let infoJugador = new Map([
@@ -55,6 +58,11 @@ do{
 
 // Informacion de la partida
 console.log(`Adios ${infoJugador.get("nombre")}`);
+
 console.log(`---> Partidas ganadas:  ${infoJugador.get("ganadas")}`);
 console.log(`---> Partidas perdidas: ${infoJugador.get("perdidas")}`);
 console.log(`---> Partidas empatadas: ${infoJugador.get("empatadas")}`);
+ganadas.innerHTML = "Ganadas : " + infoJugador.get("ganadas");
+perdidas.innerHTML = `Perdidas : ${infoJugador.get("perdidas")}`;
+empatadas.innerHTML = `Empatadas : ${infoJugador.get("empatadas")}`;
+jugador.innerHTML = `Jugador : ${infoJugador.get("nombre")}`;
