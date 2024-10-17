@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!--
+--  Autor:  David Barroso Martínez
+--  
+-->
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device, initial-scale=1"/>
+        <title>Cuadrados aleatorios</title>
+        <!--<script src="juego.js" defer></script>-->
+    </head>
+    <body>
+        <p id="idNombre" class="importante">Adios, hasta mañana</p>
+        <script>
+            let nodo = document.querySelector('p');
+            console.log(nodo);
+            let p = document.createElement("p");
+            p.innerHTML = "Nuevo Elemento";
+            p.setAttribute("id","idNuevo");
+            p.setAttribute("class","importante");
+            p.id = "idOtro";
+            document.body.appendChild(p);
+        </script>
+    </body>
+</html>
