@@ -13,16 +13,41 @@ const estructura = new Set();
 estructura.add(parrafo1);
 estructura.add(parrafo2);
 //Crear el elemento en local
-let h1 = document.createElement("h1");
+//let h1 = document.createElement("h1");
 // Completo el elemento en local
-h1.innerHTML = parrafo1.titulo;
+//h1.innerHTML = parrafo1.titulo;
 //  Añadir el elemento en JS a HTML, añado a la pagina
-document.body.appendChild(h1);
+//document.body.appendChild(h1);
 
-let hijo = null;
-parrafo1.hijos.forEach(e => {
-    hijo =  document.createElement("p");
+
+/*parrafo1.hijos.forEach(e => {
+    let hijo =  document.createElement("p");
     //Completo el elemento en local
     hijo.innerHTML = e;
     document.body.appendChild(hijo);
+});*/
+/*parrafo2.hijos.forEach(e => {
+    let hijo =  document.createElement("p");
+    //Completo el elemento en local
+    hijo.innerHTML = e;
+    document.body.appendChild(hijo);
+});*/
+
+//Utilizando una función
+crearElemento("h1",parrafo1.titulo,document.body);
+parrafo1.hijos.forEach(e => {
+    crearElemento("p",e,document.body)
 });
+crearElemento("h1",parrafo2.titulo,document.body);
+parrafo2.hijos.forEach(e => {
+    crearElemento("p",e,document.body)
+});
+
+function crearElemento(tipo,contenido,padre){
+    //Crear elemento del tipo especificadp
+    let hijo =  document.createElement(tipo);
+    //  Introduce en el elemento el contenido
+    hijo.innerHTML = contenido;
+    //  Añadir al padre
+    padre.appendChild(hijo);
+}
