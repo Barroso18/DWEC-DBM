@@ -21,6 +21,18 @@
             p.setAttribute("class","importante");
             p.id = "idOtro";
             document.body.appendChild(p);
+            let p2 = document.createElement("p");
+            p2.innerHTML="Segundo Parrafo";
+            p2.setAttribute("id","idP2");
+            p2.setAttribute("class","importante");
+            let padreDiv = document.createElement("div");
+            padreDiv.setAttribute("id","idParrafos");
+            padreDiv.appendChild(p2);
+            document.body.appendChild(padreDiv);
+            let p_Primero = document.querySelectorAll("p");
+            console.log(p_Primero);
+            let padre = p2.parentElement;
+            console.log(padre);
         </script>
     </body>
 </html>
