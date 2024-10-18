@@ -9,9 +9,9 @@ const parrafo2 = {
     titulo: "Segundo bloque de párrafos 2",
     hijos:["Este es el primer párrafo","Este es el segundo párrafo","Este es el tercer párrafo"]
 };
-const estructura = new Set();
-estructura.add(parrafo1);
-estructura.add(parrafo2);
+let contenedor = new Set();
+contenedor.add(parrafo1);
+contenedor.add(parrafo2);
 //Crear el elemento en local
 //let h1 = document.createElement("h1");
 // Completo el elemento en local
@@ -34,14 +34,14 @@ estructura.add(parrafo2);
 });*/
 
 //Utilizando una función
-crearElemento("h1",parrafo1.titulo,document.body);
+/*crearElemento("h1",parrafo1.titulo,document.body);
 parrafo1.hijos.forEach(e => {
     crearElemento("p",e,document.body)
 });
 crearElemento("h1",parrafo2.titulo,document.body);
 parrafo2.hijos.forEach(e => {
     crearElemento("p",e,document.body)
-});
+});*/
 
 function crearElemento(tipo,contenido,padre){
     //Crear elemento del tipo especificadp
@@ -51,3 +51,10 @@ function crearElemento(tipo,contenido,padre){
     //  Añadir al padre
     padre.appendChild(hijo);
 }
+//  Optimizamos el codigo con un contenedor y un forEach
+contenedor.forEach(parrafo=>{
+    crearElemento("h1",parrafo.titulo,document.body);
+    parrafo.hijos.forEach(e => {
+        crearElemento("p",e,document.body)
+    });
+});
