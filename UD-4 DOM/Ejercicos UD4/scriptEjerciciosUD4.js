@@ -43,14 +43,14 @@ parrafo2.hijos.forEach(e => {
     crearElemento("p",e,document.body)
 });*/
 
-function crearElemento(tipo,contenido,padre){
+/*function crearElemento(tipo,contenido,padre){
     //Crear elemento del tipo especificadp
     let hijo =  document.createElement(tipo);
     //  Introduce en el elemento el contenido
     hijo.innerHTML = contenido;
     //  Añadir al padre
     padre.appendChild(hijo);
-}
+}*/
 //  Optimizamos el codigo con un contenedor y un forEach
 contenedor.forEach(parrafo=>{
     crearElemento("h1",parrafo.titulo,document.body);
@@ -58,3 +58,20 @@ contenedor.forEach(parrafo=>{
         crearElemento("p",e,document.body)
     });
 });
+
+function crearElemento(tipo,contenido,padre){
+    //Crear elemento del tipo especificadp
+    let hijo =  document.createElement(tipo);
+    //  Introduce en el elemento el contenido
+    hijo.innerHTML = contenido;
+    //  Añadir al padre
+    padre.appendChild(hijo);
+    //  Añadimos el evento click y le decimos que muestra por consola su contenido
+    hijo.addEventListener("click",function(){
+        console.log(this.innerHTML);
+    });
+    //  Añadimos el evento click y le decimos que borre su contenido
+    hijo.addEventListener("click",function(){
+        this.remove();
+    });
+}
