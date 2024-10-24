@@ -1,28 +1,33 @@
 //  Ejercicio 4
 
-let deporte,serie,pelicula;
+let deporte,serie,pelicula,resdeporte,resserie,respelicula = null;
 let aceptar = document.getElementById("idaceptar");
 aceptar.addEventListener("click",function (){
-    deporte = document.getElementById("iddeporte").value;
-    serie = document.getElementById("idserie").value;
-    pelicula = document.getElementById("idpelicula").value;
-    let titulo  = document.createElement("h1");
-    titulo.innerHTML="MIS AFICIONES ....";
-    document.body.appendChild(titulo);
-    let tdeporte = document.createElement("h2");
-    let resdeporte = document.createElement("p");
-    tdeporte.innerHTML = "¿Mi deporte favorito?";
-    tdeporte.setAttribute("style","color:red");
-    resdeporte.innerHTML = deporte;//.getAttribute("value")
-    let tserie = document.createElement("h2");
-    let resserie = document.createElement("p");
-    tserie.innerHTML = "¿Mi serie favorito?";
+    deporte = document.getElementById("iddeporte");
+    serie = document.getElementById("idserie");
+    pelicula = document.getElementById("idpelicula");
+    resdeporte = crearElemento("p",deporte.value,document.getElementById("resdeportes"));
+    resserie = crearElemento("p",serie.value,document.getElementById("resseries"));
+    respelicula = crearElemento("p",pelicula.value,document.getElementById("respeliculas"));
+    deporte.value ="";
+    deporte.focus();
+    resdeporte.classList.add("azul");
+    resdeporte.previousElementSibling.classList.add("verde");
+    //  resdeporte.parentElement.previousElementSibling.classList.add("verde");
+    //let tdeporte = document.createElement("h2");
+    //let resdeporte = document.createElement("p");
+    //tdeporte.innerHTML = "¿Mi deporte favorito?";
+    //tdeporte.setAttribute("style","color:red");
+    //resdeporte.innerHTML = deporte;//.getAttribute("value")
+    //let tserie = document.createElement("h2");
+    //let resserie = document.createElement("p");
+    /*tserie.innerHTML = "¿Mi serie favorito?";
     tserie.setAttribute("style","color:red");
     resserie.innerHTML = serie;//.getAttribute("value")
     document.body.appendChild(tdeporte);
     document.body.appendChild(resdeporte);
     document.body.appendChild(tserie);
-    document.body.appendChild(resserie);
+    document.body.appendChild(resserie);*/
 });
 
 
@@ -41,4 +46,5 @@ function crearElemento(tipo,contenido,padre){
     hijo.addEventListener("click",function(){
         this.remove();
     });
+    return hijo;
 }
