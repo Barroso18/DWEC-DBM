@@ -3,6 +3,8 @@ const CAMPOS = ["Deportes", "Series", "Peliculas"]
 
 document.getElementById("aceptar").addEventListener("click", () => {
 
+    quitarEstilos();
+
     for (const i in CAMPOS) {
 
         let input = document.getElementById(`id${CAMPOS[i]}Favorito`)
@@ -16,7 +18,6 @@ document.getElementById("aceptar").addEventListener("click", () => {
     }
 })
 
-
 function crearElemento(tipo, contenido, padre) {
     // Crear el elemento del tipo especificado
     let hijo = document.createElement(tipo)
@@ -28,8 +29,14 @@ function crearElemento(tipo, contenido, padre) {
     hijo.addEventListener("click", function () {
         this.remove()
     })
-
     return hijo
+}
 
-
+function quitarEstilos(){
+    let parrafos = document.querySelectorAll("p")
+    
+    parrafos.forEach(function(e){        
+        e.classList.remove("verde")
+        e.classList.remove("azul")
+    })
 }
