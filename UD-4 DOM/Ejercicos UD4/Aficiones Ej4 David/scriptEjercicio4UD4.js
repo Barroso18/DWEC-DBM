@@ -54,6 +54,7 @@ let elemento = null
 const CAMPOS = ["Deportes", "Series", "Peliculas"]
 
 document.getElementById("idaceptar").addEventListener("click", () => {
+    quitarEstilos();
 
     for (const i in CAMPOS) {
 
@@ -84,4 +85,13 @@ function crearElemento(tipo, contenido, padre) {
     return hijo
 
 
+}
+
+function quitarEstilos(){
+    let parrafos = document.querySelectorAll("p")
+    
+    parrafos.forEach(function(e){        
+        e.classList.remove("verde")
+        e.classList.remove("azul")
+    })
 }
