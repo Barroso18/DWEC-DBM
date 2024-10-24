@@ -1,6 +1,6 @@
 //  Ejercicio 4
 
-let deporte,serie,pelicula,resdeporte,resserie,respelicula = null;
+/*let deporte,serie,pelicula,resdeporte,resserie,respelicula = null;
 let aceptar = document.getElementById("idaceptar");
 aceptar.addEventListener("click",function (){
     deporte = document.getElementById("iddeporte");
@@ -27,7 +27,7 @@ aceptar.addEventListener("click",function (){
     document.body.appendChild(tdeporte);
     document.body.appendChild(resdeporte);
     document.body.appendChild(tserie);
-    document.body.appendChild(resserie);*/
+    document.body.appendChild(resserie);
 });
 
 
@@ -47,4 +47,41 @@ function crearElemento(tipo,contenido,padre){
         this.remove();
     });
     return hijo;
+}*/
+
+//Version mejorada
+let elemento = null
+const CAMPOS = ["Deportes", "Series", "Peliculas"]
+
+document.getElementById("idaceptar").addEventListener("click", () => {
+
+    for (const i in CAMPOS) {
+
+        let input = document.getElementById(`id${CAMPOS[i]}Favorito`)
+        if (input.value !== "") {
+            elemento = crearElemento("p", input.value, document.getElementById(`id${CAMPOS[i]}`))
+            input.value = ""
+            input.focus()
+            elemento.classList.add("azul")
+            elemento.parentElement.previousElementSibling.classList.add("verde")
+        }
+    }
+})
+
+
+function crearElemento(tipo, contenido, padre) {
+    // Crear el elemento del tipo especificado
+    let hijo = document.createElement(tipo)
+    // Indicamos el contenido
+    hijo.innerHTML = contenido
+    //añadir el nodo al documento
+    padre.appendChild(hijo)
+
+    hijo.addEventListener("click", function () {
+        this.remove()
+    })
+
+    return hijo
+
+
 }
