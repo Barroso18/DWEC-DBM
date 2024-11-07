@@ -1,4 +1,4 @@
-autores=[
+libros=[
     [ "Carmen Laforet", "Nada",  "1945"],
     [ "Juan Rulfo", "Pedro Páramo",  "2014"],
     [ "Juan Rulfo", "El Llano en Llamas",  "2013"],
@@ -39,8 +39,8 @@ let buscaAutor = document.getElementById("idAutores");
 
 let autores = new Set();
 libros.forEach(element => {
-    if(!autores.has(element.Autor)){
-        autores.add(element.Autor);
+    if(!autores.has(element[0])){
+        autores.add(element[0]);
     }
 });
 
@@ -49,21 +49,21 @@ libros.forEach(element => {
 autores.forEach(element=>{
     let opcion = document.createElement("option");
     opcion.value = element;
-    opcion.innerHTML = element
+    opcion.innerHTML = element;
     buscaAutor.appendChild(opcion)
 })
 function muestralibros(evento){
    
     let cuerpo = document.getElementById("idcuerpoTabla");
-    cuerpo.innerHTML="";
+    cuerpo.innerHTML=` `;
     
     libros.forEach(element=>{
-        if(element["Autor"] === evento.target.value){
+        if(element[0] === evento.target.value){
             let tr = crearElemento("tr",``,cuerpo);
             //let tdTitulo = 
-            crearElemento("td",`${element["Titulo"]}`,tr);
+            crearElemento("td",`${element[1]}`,tr);
             //let tdFecha = 
-            crearElemento("td",`${element["Fecha"]}`,tr);;
+            crearElemento("td",`${element[2]}`,tr);;
             
         }
     })
