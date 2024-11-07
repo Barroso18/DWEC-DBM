@@ -31,3 +31,41 @@ function crearElemento(tipo, contenido, padre) {
 
 
 }
+
+
+
+let buscaAutor = document.getElementById("idAutores");
+
+
+let autores = new Set();
+libros.forEach(element => {
+    if(!autores.has(element.Autor)){
+        autores.add(element.Autor);
+    }
+});
+
+//console.log(autores);
+
+autores.forEach(element=>{
+    let opcion = document.createElement("option");
+    opcion.value = element;
+    opcion.innerHTML = element
+    buscaAutor.appendChild(opcion)
+})
+function muestralibros(evento){
+   
+    let cuerpo = document.getElementById("idcuerpoTabla");
+    cuerpo.innerHTML="";
+    
+    libros.forEach(element=>{
+        if(element["Autor"] === evento.target.value){
+            let tr = crearElemento("tr",``,cuerpo);
+            //let tdTitulo = 
+            crearElemento("td",`${element["Titulo"]}`,tr);
+            //let tdFecha = 
+            crearElemento("td",`${element["Fecha"]}`,tr);;
+            
+        }
+    })
+}
+buscaAutor.addEventListener("change",muestralibros);
