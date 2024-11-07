@@ -89,8 +89,8 @@ let buscaAutor = document.getElementById("idAutores");
 
 let autores = new Set();
 libros.forEach(element => {
-    if(!autores.has(element.autor)){
-        autores.add(element.autor);
+    if(!autores.has(element.get("autor"))){
+        autores.add(element.get("autor"));
     }
 });
 
@@ -108,12 +108,12 @@ function muestralibros(evento){
     cuerpo.innerHTML=` `;
     
     libros.forEach(element=>{
-        if(element[0] === evento.target.value){
+        if(element.get("autor") === evento.target.value){
             let tr = crearElemento("tr",``,cuerpo);
             //let tdTitulo = 
-            crearElemento("td",`${element[1]}`,tr);
+            crearElemento("td",`${element.get("titulo")}`,tr);
             //let tdFecha = 
-            crearElemento("td",`${element[2]}`,tr);;
+            crearElemento("td",`${element.get("año")}`,tr);;
             
         }
     })
