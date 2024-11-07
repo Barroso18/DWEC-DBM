@@ -30,37 +30,59 @@ autores.forEach(element=>{
     buscaAutor.appendChild(opcion)
 })
 function muestralibros(evento){
-    let filas = document.getElementsByTagName("tr");
-    /*for(let i=0; i<filas.length;i++){
+    /*let filas = document.getElementsByTagName("tr");
+    for(let i=0; i<filas.length;i++){
         //if(i!=0){
             filas[i].remove();
         //}
     }*/
-   // filas.
-    //forEach(element=>{element.remove()})
-    let tabla = document.getElementById("idTabla");
-    let rowcabecera = document.createElement("tr")
+    //filas.forEach(element=>{element.remove()})
+    //let tabla = document.getElementById("idTabla");
+    let cuerpo = document.getElementById("idcuerpoTabla");
+    cuerpo.innerHTML="";
+    /*let rowcabecera = document.createElement("tr")
     let cabTitulo = document.createElement("th")
     let cabFecha = document.createElement("th")
     cabTitulo.innerHTML = "Titulo"
     cabFecha.innerHTML = "Fecha"
     rowcabecera.appendChild(cabTitulo)
     rowcabecera.appendChild(cabFecha)
-    tabla.append(rowcabecera)
+    tabla.append(rowcabecera)*/
     libros.forEach(element=>{
         if(element["Autor"] === evento.target.value){
-            let tr = document.createElement("tr");
-            let tdTitulo = document.createElement("td");
-            let tdFecha = document.createElement("td");
-            tdTitulo.innerHTML = element["Titulo"]
-            tdFecha.innerHTML = element["Fecha"]
-            tr.appendChild(tdTitulo)
-            tr.appendChild(tdFecha)
+            let tr = crearElemento("tr",``,cuerpo);
+            //let tdTitulo = 
+            crearElemento("td",`${element["Titulo"]}`,tr);
+            //let tdFecha = 
+            crearElemento("td",`${element["Fecha"]}`,tr);;
+            //tdTitulo.innerHTML = element["Titulo"]
+            //tdFecha.innerHTML = element["Fecha"]
+            //tr.appendChild(tdTitulo)
+            //tr.appendChild(tdFecha)
             //resultado.add(element)
             
-            tabla.appendChild(tr)
+            //crearElemento("tr",tr,cuerpo)
+            //tabla.appendChild(tr)
         }
     })
     //console.log(resultado);
 }
 buscaAutor.addEventListener("change",muestralibros);
+
+
+function crearElemento(tipo, contenido, padre) {
+    // Crear el elemento del tipo especificado
+    let hijo = document.createElement(tipo)
+    // Indicamos el contenido
+    hijo.innerHTML = contenido
+    //añadir el nodo al documento
+    padre.appendChild(hijo)
+
+    hijo.addEventListener("click", function () {
+        this.remove()
+    })
+
+    return hijo
+
+
+}
