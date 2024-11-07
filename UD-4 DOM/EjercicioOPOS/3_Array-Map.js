@@ -89,12 +89,12 @@ let buscaAutor = document.getElementById("idAutores");
 
 let autores = new Set();
 libros.forEach(element => {
-    if(!autores.has(element["autor"])){
-        autores.add(element["autor"]);
+    if(!autores.has(element.autor)){
+        autores.add(element.autor);
     }
 });
 
-//console.log(autores);
+console.log(autores);
 
 autores.forEach(element=>{
     let opcion = document.createElement("option");
