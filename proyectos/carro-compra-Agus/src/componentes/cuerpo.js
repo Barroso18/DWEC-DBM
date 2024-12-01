@@ -1,5 +1,5 @@
 import '../estilos/cuerpo.css';
-
+import React, { useState } from "react";
 // Datos de imágenes
 const imageUrls = [
   { url: "./imagenes/manzana.jpg", nombre: "Manzana", precio: 5 },
@@ -10,7 +10,7 @@ const imageUrls = [
 // Componente ListaImagenes
 const Cuerpo = ({ total, setTotal, productos, setProductos }) => {
 
-  const [total, setTotal] = useState(0); 
+  //const [total, setTotal] = useState(0); 
 
   const AnadirProducto = (nombre, precio) => {
   setTotal(total + precio); // Actualiza el total

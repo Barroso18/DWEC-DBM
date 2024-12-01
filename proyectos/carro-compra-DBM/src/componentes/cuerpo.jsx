@@ -1,10 +1,5 @@
-import { useState } from "react";
-
-/*function Cuerpo(){
-    return(
-        <div>Hola David Barroso</div>
-    );
-}*/
+import React, { useState } from "react";
+import './cuerpo.css';
 const imageUrls = [
     {url:"./imagenes/bici.jpg",nombre: "Bici",precio:4000},
     {url:"./imagenes/casco.jpg",nombre: "Casco",precio:20},
@@ -12,10 +7,10 @@ const imageUrls = [
     {url:"./imagenes/culotte.jpg",nombre: "Culotte",precio:66},
     {url:"./imagenes/zapatillas.jpg",nombre: "Zapatillas",precio:40}
 ];
-const Cuerpo =(total,setTotal, productos,setProductos)=>{
-    const [total,setTotal] = useState(0);
+const Cuerpo =({total,setTotal, productos,setProductos})=>{
+    //const[total,setTotal] = useState(0);
     const AnadirProducto = (nombre,precio)=>{
-        setTotal(total+precio); //Actualiza el total
+        setTotal(total + precio); //Actualiza el total
         setProductos([...productos,nombre]);
     }
     let estilos = "rojo"
@@ -26,7 +21,7 @@ const Cuerpo =(total,setTotal, productos,setProductos)=>{
                     <img src={item.url} alt="imagen"/>
                     <h3>{item.nombre}</h3>
                     <p>Precio: {item.precio} Euros</p>
-                    <button onclick={()=>AnadirProducto(item.nombre,item.precio)}>
+                    <button onClick={()=>AnadirProducto(item.nombre,item.precio)}>
                         Añadir al carrito
                     </button>
                 </div>

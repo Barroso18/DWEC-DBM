@@ -1,9 +1,9 @@
-import { useState } from 'react'
+import React,{ useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import Menu from './componentes/menu';
-import Cuerpo from './componentes/cuerpo';
+import MenuSuperior from './componentes/menu.jsx';
+import Cuerpo from './componentes/cuerpo.jsx';
 const App=() => {
   const [total, setTotal] = useState(0); // Estado para el importe total
   const [productos, setProductos] = useState([]); // Lista de productos del carrrito
