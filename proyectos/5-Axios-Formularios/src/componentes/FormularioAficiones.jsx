@@ -38,7 +38,7 @@ function FormularioAficiones({aficiones, setAficiones, onClose}) {
     }
 
     // Validación para "descripcion"
-    if (form.descripcion && (form.descripcion.length < 10 || form.descripcion.length > 100)) {
+    if (form.descripcion.length < 10 || form.descripcion.length > 100) {
       nuevosErrores.descripcion = 'La descripción debe tener entre 10 y 100 caracteres';
     }
 

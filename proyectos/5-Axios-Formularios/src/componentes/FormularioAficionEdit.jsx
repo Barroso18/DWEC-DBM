@@ -38,7 +38,7 @@ function FormularioAficionEdit({aficiones, setAficiones, onClose}) {
     }
 
     // Validación para "descripcion"
-    if (form.descripcion && (form.descripcion.length < 10 || form.descripcion.length > 100)) {
+    if (form.descripcion.length < 10 || form.descripcion.length > 100){
       nuevosErrores.descripcion = 'La descripción debe tener entre 10 y 100 caracteres';
     }
 
@@ -57,7 +57,7 @@ function FormularioAficionEdit({aficiones, setAficiones, onClose}) {
       console.clear();
       console.log('Formulario Enviado', form);
       
-      const nuevaAficion = {          
+      const editarAficion = {          
         nombre: form.nombre,
         descripcion: form.descripcion,
       };
@@ -65,27 +65,31 @@ function FormularioAficionEdit({aficiones, setAficiones, onClose}) {
      
 
       //Enviar por Axios al Json de BD
-      servicioAficiones.create(nuevaAficion)
+      servicioAficiones.update(aficiones.id,editarAficion)
       .then(response => {
-        Swal.fire("Afición creada correctamente"); 
+        Swal.fire("Afición editada correctamente"); 
         // Limpiar el formulario después de agregar
         setForm({
           nombre: '',
           descripcion: '',
         });
+        servicioAficiones.getAll()
+        .then((response) => {
+          setAficiones(response.data);
+        })
        
-        // Le ponemos el id correcto de la BD
-        nuevaAficion.id=response.data.id
+        // // Le ponemos el id correcto de la BD
+        // nuevaAficion.id=response.data.id
 
-         // Actualizar el estado local de aficiones
-        setAficiones([...aficiones, nuevaAficion]);
+        //  // Actualizar el estado local de aficiones
+        // setAficiones([...aficiones, nuevaAficion]);
 
         //Cerramos el modal
-        onClose();
+         onClose();
        
       })
       .catch(error => {
-        Swal.fire("ERROR, Al crear afición"); 
+        Swal.fire("ERROR, Al editar afición"); 
       });
 
     }

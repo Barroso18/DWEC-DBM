@@ -110,7 +110,7 @@ const Informe = () => {
       </Modal>
 
       <Modal isOpen={isModalEditOpen} onClose={closeModalEdit}>
-           <FormularioAficionEdit  aficiones={aficionSeleccionada}/>
+           <FormularioAficionEdit  aficiones={aficionSeleccionada} setAficiones={setAficiones} onClose={closeModalEdit} />
       </Modal> 
    
     </>
