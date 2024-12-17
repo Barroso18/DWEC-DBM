@@ -1,19 +1,24 @@
 {
   "aficiones": [
     {
-      "nombre": "pasera",
-      "descripcion": "todas las mañanas\n",
-      "id": 1
-    },
-    {
       "nombre": "dfasdfasdf",
       "descripcion": "",
-      "id": 2
+      "id": "2"
     },
     {
       "nombre": "dfasdfas",
       "descripcion": "dfasdfasdfa",
-      "id": 3
+      "id": "3"
+    },
+    {
+      "nombre": "Javier",
+      "descripcion": "iinformatica",
+      "id": "5"
+    },
+    {
+      "id": "625f",
+      "nombre": "patatassss",
+      "descripcion": "fristassssssssss"
     }
   ]
 }

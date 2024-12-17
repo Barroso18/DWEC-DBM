@@ -4,14 +4,14 @@ import servicioAficiones from '../servicios/servicioAficiones';
 import Swal from 'sweetalert2';
 
 
-function FormularioAficiones({aficiones, setAficiones, onClose}) {
+function FormularioAficionEdit({aficiones, setAficiones, onClose}) {
   // Almacenar los errores del formulario
   const [errores, setErrores] = useState({});
   
   // Almacenar los valores del formulario
   const [form, setForm] = useState({
-    nombre: '',
-    descripcion: '',
+    nombre: aficiones.nombre,
+    descripcion: aficiones.descripcion,
   });
 
   //////////////////////////////////////
@@ -95,7 +95,7 @@ function FormularioAficiones({aficiones, setAficiones, onClose}) {
   return (
     <form onSubmit={enviarFormulario}>
       {/* Campo de texto para nombre */}
-      <label htmlFor="nombre">Nombre de la Afición a Añadir</label>
+      <label htmlFor="nombre">Nombre de la Afición Editar</label>
       <input
         id="nombre"
         type="text"
@@ -123,4 +123,4 @@ function FormularioAficiones({aficiones, setAficiones, onClose}) {
   );
 }
 
-export default FormularioAficiones;
+export default FormularioAficionEdit;
