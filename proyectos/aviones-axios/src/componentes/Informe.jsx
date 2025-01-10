@@ -24,7 +24,7 @@ const Informe = () => {
   return (
     <div>
       <h1>Lista de Aviones</h1>
-      <ul>
+      <ul className="listaAviones">
         {aviones.map((avion) => (
           <li key={avion.id}>{avion.nombre} -Fabricante: {avion.fabricante}- {avion.descripcion}<br/><img src={avion.url} alt={avion.url}/></li>
           

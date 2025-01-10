@@ -18,19 +18,19 @@ div {
     letter-spacing: 2px;
   }
   
-  ul {
+  .listaAviones {
     list-style-type: disc;
     margin: 0;
     padding: 0 20px;
   }
   
-  li {
+  .listaAviones li {
     margin: 10px 0;
     font-size: 18px;
     line-height: 1.6;
   }
   
-  li::marker {
+  .listaAviones li::marker {
     color: #e74c3c;
     font-size: 1.2em;
   }

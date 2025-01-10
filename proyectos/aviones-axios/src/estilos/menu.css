@@ -1,0 +1,42 @@
+/* Estilos del menú superior */
+.menu-superior {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #333; /* Fondo negro */
+    color: #fff; /* Texto blanco */
+
+  }
+  
+  
+
+.menu-enlaces {
+    background-color: #333;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+}
+
+.menu-superior  li {
+    margin: 0;
+}
+.menu-superior li::marker {
+   visibility: hidden;
+   color: #333;
+}
+.menu-superior  li a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 15px 20px;
+    transition: background-color 0.3s ease;
+}
+.menu-superior  li a:hover {
+    background-color: #575757;
+}
+  
