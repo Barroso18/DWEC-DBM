@@ -1,5 +1,6 @@
 import "../estilos/Pagina404.css";
 import { buscarProducto } from "../herramientas/buscarProducto";
+import {Link} from "react-router-dom";
 
 
 const DetalleCarrito = ({productos, informacion}) => {
@@ -21,7 +22,9 @@ const DetalleCarrito = ({productos, informacion}) => {
             let productoInformacion = buscarProducto(producto,informacion)
 
             return <li key={indice}>{productoInformacion.nombre} - {productoInformacion.precio}
-            <img src={productoInformacion.url} alt={`imagen ${productoInformacion.nombre}`} />
+            <Link to={`/detalle-producto/${productoInformacion.nombre}`}>
+              <img src={productoInformacion.url} alt={`imagen ${productoInformacion.nombre}`} />
+            </Link>
             </li>
           }
           
