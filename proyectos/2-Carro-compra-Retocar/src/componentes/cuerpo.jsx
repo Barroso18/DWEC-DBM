@@ -1,4 +1,5 @@
 import '../estilos/cuerpo.css';
+import { buscarProducto,incrementarCantidad } from '../herramientas/buscarProducto';
 
 
 
@@ -16,7 +17,14 @@ const ListaImagenes = ({ total, setTotal , productos, setProductos,productosJson
     // }) 
     
     setProductos([...productos, nombre]);
-    setProductosJson([...productosJson,{"nombre":nombre,"cantidad":1}]);
+    if(buscarProducto(nombre,productosJson) === null){
+      setProductosJson([...productosJson,{"nombre":nombre,"cantidad":1}])
+      //console.log("Se añade uno nuevo",{"nombre":nombre,"cantidad":1})
+    }else{
+      //console.log(nombre,incrementarCantidad(productosJson,nombre));
+      setProductosJson(incrementarCantidad(productosJson,nombre));
+    }
+    
         
     //console.log(productos)
    

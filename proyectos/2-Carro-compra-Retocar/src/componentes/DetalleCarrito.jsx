@@ -3,9 +3,9 @@ import { buscarProducto } from "../herramientas/buscarProducto";
 import {Link} from "react-router-dom";
 
 
-const DetalleCarrito = ({productos, informacion}) => {
+const DetalleCarrito = ({productos,productosJson, informacion}) => {
   //Aqui se mete el codigo JS, en el return solo lo que va a renderizar
-  console.log(productos)
+  console.log(productosJson)
 
   /*
   function buscarProducto(nombre){
@@ -17,7 +17,7 @@ const DetalleCarrito = ({productos, informacion}) => {
     <div className="DetalleCarrito">
       <ul>
         {
-          productos.map((producto,indice)=>{
+          productosJson.map((producto,indice)=>{
 
             let productoInformacion = buscarProducto(producto,informacion)
 

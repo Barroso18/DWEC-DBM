@@ -3,7 +3,7 @@ import "../estilos/menu.css";
 import { Link } from "react-router";
 
 // Componente MenuSuperior
-const MenuSuperior = ({ total, productosJson }) => {
+const MenuSuperior = ({ total,productos,productosJson }) => {
   const [carritoVisible, setCarritoVisible] = useState(false);
 
   const toggleCarrito = () => {
