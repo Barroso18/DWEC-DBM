@@ -17,7 +17,7 @@ const informacion = [
 ];
   const [total, setTotal] = useState(0); // Estado para el importe total
   const [productos, setProductos] = useState([]); // Lista de productos del carrrito
-
+  const [productosJson, setProductosJson] = useState([]);
   return (
 
 
@@ -26,16 +26,20 @@ const informacion = [
 
       <header className="App-header">
         {/* Pasar el total al menú superior */}
-        <MenuSuperior
+        {/*<MenuSuperior
           total={total}
           productos={productos}
+        />*/}
+        <MenuSuperior
+          total={total}
+          productosJson={productosJson}
         />
       </header>
       <main>
         <Routes>
           <Route path="*" element={<Pagina404 />} />
           <Route path="/"
-            element={<ListaImagenes total={total} setTotal={setTotal} productos={productos} setProductos={setProductos} informacion={informacion}/>} />
+            element={<ListaImagenes total={total} setTotal={setTotal} productos={productos} setProductos={setProductos}  productosJson={productosJson} setProductosJson={setProductosJson} informacion={informacion}/>} />
 
           <Route path="/detalle-carrito" 
                   element={<DetalleCarrito productos={productos} informacion={informacion}/>} />

@@ -3,7 +3,7 @@ import '../estilos/cuerpo.css';
 
 
 // Componente ListaImagenes
-const ListaImagenes = ({ total, setTotal , productos, setProductos, informacion }) => {
+const ListaImagenes = ({ total, setTotal , productos, setProductos,productosJson, setProductosJson, informacion }) => {
   
   const AnadirProducto = (nombre, precio) => {
     //alert(`${nombre} añadido al carrito, con precio ${precio}`);
@@ -16,6 +16,7 @@ const ListaImagenes = ({ total, setTotal , productos, setProductos, informacion 
     // }) 
     
     setProductos([...productos, nombre]);
+    setProductosJson([...productosJson,{"nombre":nombre,"cantidad":1}]);
         
     //console.log(productos)
    
