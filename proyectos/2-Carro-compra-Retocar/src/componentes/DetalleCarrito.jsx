@@ -1,4 +1,4 @@
-import "../estilos/Pagina404.css";
+import "../estilos/detalleCarrito.css";
 import { buscarProducto } from "../herramientas/buscarProducto";
 import {Link} from "react-router-dom";
 
@@ -19,9 +19,10 @@ const DetalleCarrito = ({productos,productosJson, informacion}) => {
         {
           productosJson.map((producto,indice)=>{
 
-            let productoInformacion = buscarProducto(producto,informacion)
+            let productoInformacion = buscarProducto(producto.nombre,informacion)
 
-            return <li key={indice}>{productoInformacion.nombre} - {productoInformacion.precio}
+            return <li key={indice}>Nombre:{productoInformacion.nombre}<br/>Precio: {productoInformacion.precio}<br/>
+                  Cantidad: {producto.cantidad}<br/>
             <Link to={`/detalle-producto/${productoInformacion.nombre}`}>
               <img src={productoInformacion.url} alt={`imagen ${productoInformacion.nombre}`} />
             </Link>

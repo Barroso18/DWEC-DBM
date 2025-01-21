@@ -46,10 +46,6 @@ const informacion = [
                   element={<DetalleCarrito productos={productos} productosJson={productosJson} informacion={informacion}/>} />
           <Route path='/detalle-producto/:nombre' 
                   element={<DetalleProducto informacion={informacion}/>} />
-          
-
-
-
         </Routes>
 
       </main>

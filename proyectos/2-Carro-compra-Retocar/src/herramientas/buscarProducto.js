@@ -1,4 +1,5 @@
 export  function buscarProducto(nombre, informacion){
+  console.log(informacion)
     return informacion.find(producto => producto.nombre.toLowerCase()===nombre.toLowerCase()) || null;
   }
 export function incrementarCantidad(informacion,nombre){
@@ -15,6 +16,7 @@ export function incrementarCantidad(informacion,nombre){
 }
 
 export function obtenerCantidadTotal(informacion){
+  console.log(informacion)
   let total = 0
   informacion.forEach(producto => total +=producto.cantidad);
   return total;
