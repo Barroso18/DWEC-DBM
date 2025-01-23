@@ -43,7 +43,7 @@ const informacion = [
             element={<ListaImagenes total={total} setTotal={setTotal} productos={productos} setProductos={setProductos}  productosJson={productosJson} setProductosJson={setProductosJson} informacion={informacion}/>} />
 
           <Route path="/detalle-carrito" 
-                  element={<DetalleCarrito productos={productos} productosJson={productosJson} informacion={informacion}/>} />
+                  element={<DetalleCarrito total={total} setTotal={setTotal} productos={productos} setProductos={setProductos}  productosJson={productosJson} setProductosJson={setProductosJson} informacion={informacion}/>} />
           <Route path='/detalle-producto/:nombre' 
                   element={<DetalleProducto informacion={informacion}/>} />
         </Routes>
