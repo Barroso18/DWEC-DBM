@@ -4,7 +4,7 @@ import { buscarProducto,incrementarCantidad,decrementarCantidad } from "../herra
 import {Link} from "react-router-dom";
 
 
-const DetalleCarrito = ({total, setTotal , productos, setProductos,productosJson, setProductosJson, informacion}) => {
+const DetalleCarrito = ({total, setTotal , informacion, productos, setProductos,productosJson, setProductosJson}) => {
   //Aqui se mete el codigo JS, en el return solo lo que va a renderizar
   console.log(productosJson)
 

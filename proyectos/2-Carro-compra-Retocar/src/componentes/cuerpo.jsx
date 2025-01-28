@@ -4,7 +4,7 @@ import { buscarProducto,incrementarCantidad } from '../herramientas/buscarProduc
 
 
 // Componente ListaImagenes
-const ListaImagenes = ({ total, setTotal , productos, setProductos,productosJson, setProductosJson, informacion }) => {
+const ListaImagenes = ({ total, setTotal, informacion , productos, setProductos,productosJson, setProductosJson }) => {
   
   const AnadirProducto = (nombre, precio) => {
     //alert(`${nombre} añadido al carrito, con precio ${precio}`);

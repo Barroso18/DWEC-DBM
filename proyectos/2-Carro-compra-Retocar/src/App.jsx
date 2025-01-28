@@ -15,9 +15,9 @@ const informacion = [
   { url: "../imagenes/pera.jpg", nombre: "Pera", precio: 7 }, 
   { url: "../imagenes/platano.jpg", nombre: "Platano", precio: 4 } 
 ];
-  const [total, setTotal] = useStateStorage(0); // Estado para el importe total
-  const [productos, setProductos] = useStateStorage([]); // Lista de productos del carrrito
-  const [productosJson, setProductosJson] = useStateStorage([]);
+  const [total, setTotal] = useStateStorage("total",0); // Estado para el importe total
+  const [productos, setProductos] = useStateStorage("productos",[]); // Lista de productos del carrrito
+  const [productosJson, setProductosJson] = useStateStorage("productosJson",[]);
   return (
 
 
@@ -40,10 +40,10 @@ const informacion = [
         <Routes>
           <Route path="*" element={<Pagina404 />} />
           <Route path="/"
-            element={<ListaImagenes total={total} setTotal={setTotal} productos={productos} setProductos={setProductos}  productosJson={productosJson} setProductosJson={setProductosJson} informacion={informacion}/>} />
+            element={<ListaImagenes total={total} setTotal={setTotal} informacion={informacion} productos={productos} setProductos={setProductos}  productosJson={productosJson} setProductosJson={setProductosJson}/>} />
 
           <Route path="/detalle-carrito" 
-                  element={<DetalleCarrito total={total} setTotal={setTotal} productos={productos} setProductos={setProductos}  productosJson={productosJson} setProductosJson={setProductosJson} informacion={informacion}/>} />
+                  element={<DetalleCarrito total={total} setTotal={setTotal} informacion={informacion} productos={productos} setProductos={setProductos}  productosJson={productosJson} setProductosJson={setProductosJson}/>} />
           <Route path='/detalle-producto/:nombre' 
                   element={<DetalleProducto informacion={informacion}/>} />
         </Routes>
