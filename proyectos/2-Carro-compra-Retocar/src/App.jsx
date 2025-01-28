@@ -6,7 +6,7 @@ import Pagina404 from "./componentes/Pagina404";
 import DetalleCarrito from "./componentes/DetalleCarrito";
 import DetalleProducto from './componentes/DetalleProducto';
 
-
+import useStateStorage from './servicios/UseStateStorage';
 function App() {
 
   // Datos de imágenes
@@ -15,9 +15,9 @@ const informacion = [
   { url: "../imagenes/pera.jpg", nombre: "Pera", precio: 7 }, 
   { url: "../imagenes/platano.jpg", nombre: "Platano", precio: 4 } 
 ];
-  const [total, setTotal] = useState(0); // Estado para el importe total
-  const [productos, setProductos] = useState([]); // Lista de productos del carrrito
-  const [productosJson, setProductosJson] = useState([]);
+  const [total, setTotal] = useStateStorage(0); // Estado para el importe total
+  const [productos, setProductos] = useStateStorage([]); // Lista de productos del carrrito
+  const [productosJson, setProductosJson] = useStateStorage([]);
   return (
 
 
