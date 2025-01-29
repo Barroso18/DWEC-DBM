@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import ServicioAficiones from "../servicios/servicioAviones.js";
+import ServicioAviones from "../servicios/servicioAviones.js";
 import "../estilos/Informe.css"
 import Swal from "sweetalert2";
 
@@ -7,7 +7,7 @@ const Chuleta = () => {
   const [aviones, setAviones] = useState([]);
 
   useEffect(() => {
-    ServicioAficiones.getAll()
+    ServicioAviones.getAll()
       .then((response) => {
         setAviones(response.data);
       })
