@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 import ServicioAviones from "../servicios/servicioAviones.js";
 import servicioAviones from "../servicios/servicioAviones";
 
-function AvionCrear({aviones, setAviones, onClose}){
+function AvionEditar({aviones, setAviones, onClose}){
     // errores Almacena los errores del formulario
     const [errores,setErrores] = useState({});
     const fabricantes = ["BOEING","AIRBUS","ATR","CESSNA","EMBRAER","BOMBARDIER"];
@@ -13,11 +13,11 @@ function AvionCrear({aviones, setAviones, onClose}){
     const [fabricanteSeleccionado, setFabricanteSeleccionado] = useState("");
     //Almacenamos los valores del formulario
     const [form,setForm] = useState({
-        id:'',
-        nombre:'',
-        fabricante:'',
-        descripcion:'',
-        url:''
+        id:aviones.id,
+        nombre:aviones.nombre,
+        fabricante:aviones.fabricante,
+        descripcion:aviones.descripcion,
+        url:aviones.url
     });
     //////////////////////////////////////
     // Función para gestionar los cambios en los campos del formulario
@@ -101,7 +101,7 @@ function AvionCrear({aviones, setAviones, onClose}){
             console.clear();
             console.log('Formulario enviado', form);
 
-            const nuevoAvion = {
+            const editarAvion = {
                 nombre: form.nombre,
                 descripcion: form.descripcion,
                 fabricante: form.fabricante,
@@ -109,9 +109,9 @@ function AvionCrear({aviones, setAviones, onClose}){
             }
 
             // Enviar por Axios al Json de BD
-            servicioAviones.create(nuevoAvion)
+            servicioAviones.update(nuevoAvion.id,editarAvion)
             .the(response =>{
-                Swal.fire("Avión creado correctamente");
+                Swal.fire("Avión Actualizado correctamente");
                 // Limpiar el formulario despues de agregar
                 setForm({
                     nombre: '',
@@ -120,10 +120,13 @@ function AvionCrear({aviones, setAviones, onClose}){
                     url: ''
                 });
                 // Le ponemos el id correcto de la BD
-                nuevoAvion.id = response.data.id
+                //nuevoAvion.id = response.data.id
 
                 //Actualizar el estado local de aviones
-                setAviones([...aviones,nuevoAvion]);
+                servicioAvionesl.getAll()
+                    .then((response)=>{
+                        setAviones(response.data)
+                    })
 
                 // Cerramos el modal
                 onclose();
@@ -185,4 +188,4 @@ function AvionCrear({aviones, setAviones, onClose}){
     );
 }
 
-export default AvionCrear;
+export default AvionEditar;
