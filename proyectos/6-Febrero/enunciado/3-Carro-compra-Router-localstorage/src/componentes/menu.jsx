@@ -11,7 +11,8 @@ const MenuSuperior = ({ total, productos, eliminarProducto }) => {
     setCarritoVisible(!carritoVisible);
   };
 
-  let importeTotal = 10;//total.toFixed(2);  
+  //let importeTotal = 10;//total.toFixed(2);  
+  let importeTotal = total.toFixed(2);
   let unidades = calcularUnidades(productos)  
 
   return (

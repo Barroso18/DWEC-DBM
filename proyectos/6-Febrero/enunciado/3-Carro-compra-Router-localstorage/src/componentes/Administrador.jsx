@@ -6,7 +6,7 @@ function Administrador() {
   // Almacenar los errores del Formulario
   const [errores, setErrores] = useState({});
   const [informacion, setInformacion] = useState([])
-
+  const [productoSeleccionado, setProductoSeleccionado] = useState([])
   // Amacenar los valores del formulario(En todo momento!!!) 
   const [form, setForm] = useState({
     nombre: '',
@@ -51,6 +51,17 @@ function Administrador() {
     return Object.keys(nuevosErrores).length === 0;
   };
 
+  //Funcion para mostrar el modal
+  
+
+
+
+  // Funcion para que muestre por defecto todos los productos
+
+
+
+
+
   // Función para manejar el envío del formulario
   const enviarFormulario = (e) => {
     e.preventDefault(); // Evita que el formulario se envíe automáticamente
@@ -87,7 +98,13 @@ function Administrador() {
       alert("Por favor, corrija los errores en el formulario antes de enviar.");
     }
   };
-
+/**
+ <datalist id="productos">
+              {productos.map((producto, index) => (
+                <option key={index} value={producto.nombre} />
+              ))}
+          </datalist>
+ */
 
   return (
     <>
@@ -103,10 +120,11 @@ function Administrador() {
             onChange={gestionarCambio}
             placeholder="Escribe tu nombre"
           />
+          
           {errores.nombre && <p className="error">{errores.nombre}</p>}
 
-          {/* Campo de texto para apellidos */}
-          <label htmlFor="apellidos">Precio Mínomo</label>
+          {/* Campo de texto para precio mínimo */}
+          <label htmlFor="precioMenor">Precio Mínimo</label>
           <input
             id="precioMenor"
             type="text"
@@ -116,8 +134,8 @@ function Administrador() {
             placeholder="importe Mínimo"
           />
         
-
-          <label htmlFor="apellidos">Precio Máximo</label>
+          {/* Campo de texto para precio máximo */}
+          <label htmlFor="precioMayor">Precio Máximo</label>
           <input
             id="precioMayor"
             type="text"
@@ -154,7 +172,10 @@ function Administrador() {
               <td className="actions">
                 <button className="edit">Editar</button>
                 <button className="delete">Eliminar</button>
-                <button className="view">Consultar</button>
+                <button className="view"
+                      onClick={
+                        consultarModal(item)
+                      }>Consultar</button>
               </td>
             </tr>
 
