@@ -21,7 +21,7 @@ const ListaImagenes = ({ total, setTotal , productos, setProductos , informacion
           <img src={item.url} alt="imagen" />
           <h3>{item.nombre}</h3>
           <p>Precio: {item.precio} Euros</p>
-          <button onClick={() => AnadirProducto(item.nombre, item.precio)}>
+          <button onClick={() => AnadirProducto(item.nombre, parseInt(item.precio))}>
             Añadir al carrito
           </button>
         </div>

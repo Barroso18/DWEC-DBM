@@ -11,6 +11,7 @@ import { AuthProvider } from './Login/AuthProvider';
 import Login from './Login/login';
 import RutasProtegidas from './Login/RutasProtegidas';
 import ServicioUsuario from './servicios/ServicioUsuario';
+import Swal from 'sweetalert2';
 
 
 function App() {
