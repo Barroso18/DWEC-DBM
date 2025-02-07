@@ -19,11 +19,32 @@ export function incrementarCantidad(informacion , nombre) {
   });
 }
 
+
+
+//*********************************************************************************/
+// Borrar  un producto, en el array informacion facilitado
+//*********************************************************************************/
+export function borrarProducto(informacion,setInfromacion , nombre) { 
+  const informacionNueva =  informacion.filter(producto => producto.nombre!==nombre);
+  setInfromacion(informacionNueva);
+  return informacion;
+  /*return informacion.map(producto => {
+    if (producto.nombre.toLowerCase() === nombre.toLowerCase()) {
+      return { ...producto, cantidad: producto.cantidad + 1 }; 
+    }
+    return { ...producto }; 
+  });*/
+}
 //*********************************************************************************/
 // Reducir la cantidad de un producto, en el array informacion facilitado
 //*********************************************************************************/
 export function reducirCantidad(informacion, nombre) {  
-  
+  return informacion.map(producto => {
+    if (producto.nombre.toLowerCase() === nombre.toLowerCase()) {
+      return { ...producto, cantidad: producto.cantidad - 1 }; 
+    }
+    return { ...producto }; 
+  });
   
 }
 

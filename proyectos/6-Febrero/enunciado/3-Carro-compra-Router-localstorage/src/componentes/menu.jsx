@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import "../estilos/menu.css";
 import { Link } from 'react-router-dom';
-import { calcularUnidades } from "../herramientas/buscarProducto";
+import { borrarProducto, calcularUnidades } from "../herramientas/buscarProducto";
 
 // Componente MenuSuperior
-const MenuSuperior = ({ total, productos, eliminarProducto }) => {
+const MenuSuperior = ({ total, productos,setProductos }) => {
   const [carritoVisible, setCarritoVisible] = useState(false);
 
   const toggleCarrito = () => {
@@ -59,9 +59,15 @@ const MenuSuperior = ({ total, productos, eliminarProducto }) => {
                   {productos.map((producto, index) => (
                     <li key={index} className="producto-item">
                       <span>{producto.cantidad} x {producto.nombre}</span>
-                      <button
+                      {/* <button
                         className="eliminar-producto"
                         onClick={() => alert("Debes implementarme, soy una parte de la prueba")}
+                      >
+                        🗑️
+                      </button>*/}
+                      <button
+                        className="eliminar-producto"
+                        onClick={() =>  borrarProducto(productos,setProductos,producto.nombre)}
                       >
                         🗑️
                       </button>

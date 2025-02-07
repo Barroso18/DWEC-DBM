@@ -41,6 +41,7 @@ function App() {
         <MenuSuperior 
             total={total} 
             productos={productos}
+            setProductos={setProductos}
                   />
       </header>
       <main>
