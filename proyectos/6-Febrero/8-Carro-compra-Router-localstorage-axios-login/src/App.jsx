@@ -61,7 +61,7 @@ function App() {
                 </RutasProtegidas>
               }
             />
-
+            {/**La pagina de login no está protegida */}
             <Route
               path="/login"
               element={<Login/>}
