@@ -28,19 +28,24 @@ const Login = () => {
   const handleSubmit = async (e) => {
   
     e.preventDefault();
-    handleEncryptPassword();
+    //cifrarPassword();
     // ServicioUsuario.login(usuario,password)
-    ServicioUsuario.login(usuario,encryptedPassword)
+    ServicioUsuario.login(usuario)
       .then((response) => {
        if(response.data.length !== 0 ){        
-        login(response.data[0].nombre,response.data[0].pass);
-        navigate('/'); 
+        const usuario = response.data[0];
+        const hashUsuario = usuario.pass
+        const esCorrecta = bcrypt.compareSync(password,hashUsuario);
+        if(esCorrecta){
+          login(usuario.nombre);
+          navigate('/'); 
+        }else{
+          setError("COntraseña incorrecta");
+        }
        }else {
         
-        setError("Usuario no es correcto")
+        setError("Usuario no es correcto");
        }
-       
-        
       })
       .catch((error) => {   
         alert(error)                 
