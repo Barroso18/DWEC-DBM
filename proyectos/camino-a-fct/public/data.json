@@ -1,0 +1,16 @@
+{
+    "usuarios": [
+      { "id": "1", "nombre": "agustin", "pass": "$2b$10$iEhoLHrbYIfJqCKN/iNU8uJv9d.MAPpqc0k03sUmjPDP23/VqXkfu", "administrador":1 },
+      { "id": "2", "nombre": "ana", "pass": "$2b$10$oWYL3Y8smdEoijhIGCdcTO4tfD0qs7m1dQvlBK7001.GxO5h1osLG", "administrador": 0  },
+      { "id": "3", "nombre": "juanito", "pass": "$2b$10$sw0VRpVAYxaijZ7Dh5DxVehwOdyDVVgsPUPdU/yzI/stxWZVxKm7y", "administrador": 0 }
+    ],
+
+    "frutas" : [
+      { "id": "1", "nombre": "Manzana", "precio": "5",  "url": "/imagenes/manzana.jpg" },
+      { "id": "2", "nombre": "Pera", "precio": "7",  "url": "/imagenes/pera.jpg" },
+      { "id": "3", "nombre": "Platano", "precio": "4",  "url": "/imagenes/platano.jpg" },  
+      { "id": "4", "nombre": "Aceitunas", "precio": "10",  "url": "/imagenes/aceitunas.jpg" }      
+    ]
+   
+  }
+
