@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selector de Comunidades y Provincias</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        label, select, button {
+            display: block;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <form id="formulario">
+        <label for="comunidad">Selecciona una Comunidad Autónoma:</label>
+        <select id="comunidad">
+            <option value="">-- Selecciona una Comunidad --</option>
+        </select>
+        
+        <label for="provincia">Selecciona una Provincia:</label>
+        <select id="provincia" disabled>
+            <option value="">Selecciona una Comunidad Autónoma</option>
+        </select>
+        
+        <button type="submit">Enviar</button>
+    </form>
+    <p id="mensaje" style="color: red;"></p>
+
+    <script>
+        const provincias = new Map([
+            ["Andalucía", ["Cádiz", "Córdoba", "Granada", "Sevilla", "Huelva", "Jaén", "Málaga"]],
+            ["Cataluña", ["Barcelona", "Girona", "Lleida", "Tarragona"]],
+            ["Madrid", ["Madrid"]],
+            ["Valencia", ["Alicante", "Castellón", "Valencia"]]
+        ]);
+
+        const comunidadSelect = document.getElementById("comunidad");
+        const provinciaSelect = document.getElementById("provincia");
+        const formulario = document.getElementById("formulario");
+        const mensaje = document.getElementById("mensaje");
+
+        // Llenar el primer selector con las comunidades
+        provincias.forEach((_, comunidad) => {
+            const option = document.createElement("option");
+            option.value = comunidad;
+            option.textContent = comunidad;
+            comunidadSelect.appendChild(option);
+        });
+
+        // Evento para actualizar el selector de provincias
+        comunidadSelect.addEventListener("change", () => {
+            const comunidadSeleccionada = comunidadSelect.value;
+            provinciaSelect.innerHTML = ""; // Limpiar provincias anteriores
+            
+            if (comunidadSeleccionada) {
+                provincias.get(comunidadSeleccionada).forEach(provincia => {
+                    const option = document.createElement("option");
+                    option.value = provincia;
+                    option.textContent = provincia;
+                    provinciaSelect.appendChild(option);
+                });
+                provinciaSelect.disabled = false;
+            } else {
+                provinciaSelect.innerHTML = '<option value="">Selecciona una Comunidad Autónoma</option>';
+                provinciaSelect.disabled = true;
+            }
+        });
+
+        // Validación al enviar el formulario
+        formulario.addEventListener("submit", (event) => {
+            mensaje.textContent = "";
+            if (!comunidadSelect.value || !provinciaSelect.value) {
+                event.preventDefault();
+                mensaje.textContent = "Por favor, selecciona una Comunidad Autónoma y una Provincia.";
+            }
+        });
+    </script>
+</body>
+</html>
